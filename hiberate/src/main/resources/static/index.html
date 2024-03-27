@@ -1,0 +1,26 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <title>Hello World</title>
+        <script type="application/javascript" src="/axios-1.6.8.min.js"></script>
+        <script type="application/javascript">
+            function getTheAnswer() {
+                axios.get('/answer')
+                    .then(response => {
+                        const answer = response.data;
+
+                        document.querySelector("button").remove();
+                        document.getElementById("answer").innerHTML =
+                            `The answer to life, the universe, and everything else is: ${answer}`;
+                    });
+            }
+        </script>
+    </head>
+
+    <body>
+        <h1>Hello World</h1>
+
+        <div id="answer"></div>
+        <button onclick="getTheAnswer()">Get the answer</button>
+    </body>
+</html>
