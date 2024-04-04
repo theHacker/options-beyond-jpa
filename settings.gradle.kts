@@ -4,3 +4,4 @@ plugins {
 
 rootProject.name = "options-beyond-jpa"
 include("hiberate")
+include("jooq")

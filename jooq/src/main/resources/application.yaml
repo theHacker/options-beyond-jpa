@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:mydatabase
+  h2:
+    console:
+      enabled: true
+logging:
+  level:
+    org.jooq.tools.LoggerListener: DEBUG
