@@ -1,0 +1,54 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <title>Hello World</title>
+        <script type="application/javascript" src="/axios-1.6.8.min.js"></script>
+        <script type="application/javascript">
+            function getTheAnswer() {
+                axios.get('/answer')
+                    .then(response => {
+                        const answer = response.data;
+
+                        document.getElementById("answerResult").innerHTML =
+                            `The answer to life, the universe, and everything else is: ${answer}`;
+                    });
+            }
+
+            function getPizzas() {
+                axios.get('/pizzas')
+                    .then(response => {
+                        document.getElementById("jsonResult").innerHTML =
+                            JSON.stringify(response.data, null, ' ');
+                    });
+            }
+            function getPizzaToppings() {
+                axios.get('/pizzas/toppings')
+                    .then(response => {
+                        document.getElementById("jsonResult").innerHTML =
+                            JSON.stringify(response.data, null, ' ');
+                    });
+            }
+            function getOrdersSummary() {
+                axios.get('/orders/summary')
+                    .then(response => {
+                        document.getElementById("jsonResult").innerHTML =
+                            JSON.stringify(response.data, null, ' ');
+                    });
+            }
+        </script>
+    </head>
+
+    <body>
+        <h1>Spring JDBC</h1>
+
+        <div id="answerResult"></div>
+        <button onclick="getTheAnswer()">Get the answer</button>
+
+        <hr style="margin: 1rem 0;" />
+
+        <pre><code id="jsonResult"></code></pre>
+        <button onclick="getPizzas()">Get all pizzas</button>
+        <button onclick="getPizzaToppings()">Get all pizza toppings</button>
+        <button onclick="getOrdersSummary()">Get orders summary</button>
+    </body>
+</html>
